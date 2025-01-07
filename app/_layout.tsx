@@ -5,6 +5,15 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "react-native-reanimated";
+import {
+	Urbanist_100Thin,
+	Urbanist_300Light,
+	Urbanist_400Regular,
+	Urbanist_500Medium,
+	Urbanist_600SemiBold,
+	Urbanist_700Bold,
+	Urbanist_800ExtraBold,
+} from "@expo-google-fonts/urbanist";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 
@@ -13,8 +22,27 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
 	const colorScheme = useColorScheme();
+	// const [loaded] = useFonts({
+	// 	SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+	// });
+
+	// useEffect(() => {
+	// 	if (loaded) {
+	// 		SplashScreen.hideAsync();
+	// 	}
+	// }, [loaded]);
+
+	// if (!loaded) {
+	// 	return null;
+	// }
 	const [loaded] = useFonts({
-		SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+		Urbanist_100Thin,
+		Urbanist_300Light,
+		Urbanist_400Regular,
+		Urbanist_500Medium,
+		Urbanist_600SemiBold,
+		Urbanist_700Bold,
+		Urbanist_800ExtraBold,
 	});
 
 	useEffect(() => {
