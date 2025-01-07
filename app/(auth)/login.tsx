@@ -40,7 +40,7 @@ export default LoginScreen;
 const styles = StyleSheet.create({
 	container: {
 		paddingTop: 50,
-		paddingHorizontal: 20,
+		paddingHorizontal: 10,
 	},
 	text: {
 		fontSize: 32,
