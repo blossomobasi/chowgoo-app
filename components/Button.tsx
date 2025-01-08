@@ -1,7 +1,8 @@
-import { Text, StyleSheet, useColorScheme, Pressable } from "react-native";
+import { StyleSheet, useColorScheme, Pressable } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 import { Colors } from "@/constants/Colors";
+import Text from "@/components/ui/Text";
 
 interface ButtonProps {
 	title: string;
