@@ -1,19 +1,26 @@
 import ChowLogo from "@/components/ChowLogo";
 import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-import { StyleSheet, View, Text, Pressable, useColorScheme } from "react-native";
+import { StyleSheet, View, Pressable, useColorScheme } from "react-native";
+import Text from "@/components/ui/Text";
+import { currencyFormatter } from "@/utils";
 
 export default function HomeScreen() {
 	const colorScheme = useColorScheme();
 	const theme = Colors[colorScheme ?? "light"];
+	const WALLET_BALANCE = 165400;
 
 	return (
 		<View style={styles.container}>
 			<ChowLogo />
 
 			<View style={[styles.walletCard, { backgroundColor: theme.primary }]}>
-				<Text style={styles.walletLabel}>Total Balance</Text>
-				<Text style={styles.walletBalance}>$ 165,400.00</Text>
+				<Text variant="medium" style={styles.walletLabel}>
+					Total Balance
+				</Text>
+				<Text variant="semiBold" style={styles.walletBalance}>
+					{currencyFormatter(WALLET_BALANCE)}
+				</Text>
 
 				<View style={styles.row}>
 					<Pressable style={styles.addFundsButton}>
@@ -51,7 +58,6 @@ const styles = StyleSheet.create({
 	walletBalance: {
 		color: "white",
 		fontSize: 44,
-		fontWeight: "bold",
 		marginBottom: 30,
 	},
 
@@ -68,6 +74,7 @@ const styles = StyleSheet.create({
 	},
 	addFundsText: {
 		fontSize: 16,
+		fontFamily: "Urbanist_500Medium",
 	},
 	iconButton: {
 		backgroundColor: "white",
