@@ -1,50 +1,132 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { Platform } from "react-native";
-
+import { StyleSheet, View } from "react-native";
+import Text from "@/components/ui/Text";
 import { HapticTab } from "@/components/HapticTab";
 import { IconSymbol } from "@/components/ui/IconSymbol";
-import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function TabLayout() {
 	const colorScheme = useColorScheme();
+	const theme = Colors[colorScheme ?? "light"];
 
 	return (
 		<Tabs
 			screenOptions={{
-				tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
 				headerShown: false,
 				tabBarButton: HapticTab,
-				tabBarBackground: TabBarBackground,
-				tabBarStyle: Platform.select({
-					ios: {
-						// Use a transparent background on iOS to show the blur effect
-						position: "absolute",
-					},
-					default: {},
-				}),
+				tabBarStyle: styles.tabBar,
+				tabBarItemStyle: styles.tabBarItem,
+				tabBarActiveBackgroundColor: "white",
+				tabBarBackground: () => <View style={[styles.background, { backgroundColor: theme.primary }]} />,
+				tabBarLabel: () => null,
 			}}
 		>
 			<Tabs.Screen
 				name="index"
 				options={{
 					title: "Home",
-					tabBarIcon: ({ color }) => (
-						<IconSymbol size={28} name="house.fill" color={color} />
+					tabBarIcon: ({ focused }) => (
+						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
+							<IconSymbol size={28} name="house.fill" color={focused ? theme.primary : "white"} />
+							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
+								{focused ? "Home" : ""}
+							</Text>
+						</View>
+					),
+				}}
+			/>
+
+			<Tabs.Screen
+				name="search"
+				options={{
+					title: "Search",
+					tabBarIcon: ({ focused }) => (
+						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
+							<IconSymbol size={28} name="magnifyingglass.circle.fill" color={focused ? theme.primary : "white"} />
+							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
+								{focused ? "Search" : ""}
+							</Text>
+						</View>
 					),
 				}}
 			/>
 			<Tabs.Screen
-				name="explore"
+				name="percent"
 				options={{
-					title: "Explore",
-					tabBarIcon: ({ color }) => (
-						<IconSymbol size={28} name="paperplane.fill" color={color} />
+					title: "Percent",
+					tabBarIcon: ({ focused }) => (
+						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
+							<IconSymbol size={28} name="percent.ar" color={focused ? theme.primary : "white"} />
+							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
+								{focused ? "Percent" : ""}
+							</Text>
+						</View>
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name="cart"
+				options={{
+					title: "Cart",
+					tabBarIcon: ({ focused }) => (
+						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
+							<IconSymbol size={28} name="cart.fill" color={focused ? theme.primary : "white"} />
+							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
+								{focused ? "Cart" : ""}
+							</Text>
+						</View>
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name="user-settings"
+				options={{
+					title: "User-settings",
+					tabBarIcon: ({ focused }) => (
+						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
+							<IconSymbol size={28} name="person.2.circle.fill" color={focused ? theme.primary : "white"} />
+							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
+								{focused ? "Account" : ""}
+							</Text>
+						</View>
 					),
 				}}
 			/>
 		</Tabs>
 	);
 }
+
+const styles = StyleSheet.create({
+	tabBar: {
+		position: "absolute",
+		bottom: 5,
+		marginHorizontal: 10,
+		elevation: 0,
+		height: 60,
+		backgroundColor: "transparent",
+	},
+	background: {
+		position: "absolute",
+		height: "100%",
+		width: "100%",
+		borderRadius: 30,
+	},
+	tabBarItem: {
+		borderRadius: 30,
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center",
+	},
+	tabItemContainer: {
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center",
+		paddingHorizontal: 10,
+		overflow: "hidden",
+		borderRadius: 30,
+		width: 100,
+		height: 50,
+	},
+});
