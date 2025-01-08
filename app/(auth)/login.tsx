@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, TextInput, useColorScheme } from "react-native";
+import { View, StyleSheet, TextInput, useColorScheme } from "react-native";
+import Text from "@/components/ui/Text";
 import React from "react";
 import BackButton from "@/components/BackButton";
 import { Colors } from "@/constants/Colors";
@@ -12,7 +13,9 @@ const LoginScreen = () => {
 		<View style={styles.container}>
 			<BackButton />
 
-			<Text style={[styles.text, { color: theme.primary }]}>Welcome back! Glad to see you, Again!</Text>
+			<Text variant="bold" style={[styles.text, { color: theme.primary }]}>
+				Welcome back! Glad to see you, Again!
+			</Text>
 
 			<View>
 				<TextInput placeholder="Enter your email" style={styles.input} />
@@ -27,7 +30,7 @@ const LoginScreen = () => {
 
 			<Text style={styles.registerText}>
 				Don't have an account?{" "}
-				<Link href="/(auth)/register" style={{ color: theme.primary, fontWeight: "bold" }}>
+				<Link href="/(auth)/register" style={{ color: theme.primary, fontFamily: "Urbanist_600SemiBold" }}>
 					Register Now
 				</Link>
 			</Text>
@@ -54,17 +57,19 @@ const styles = StyleSheet.create({
 		padding: 20,
 		marginTop: 10,
 		backgroundColor: "#E8ECF4",
+		fontSize: 15,
+		fontFamily: "Urbanist_400Regular",
 	},
 	link: {
 		textAlign: "right",
 		marginTop: 15,
 		marginBottom: 30,
-		fontWeight: "semibold",
+		fontSize: 15,
+		fontFamily: "Urbanist_400Regular",
 	},
 	registerText: {
 		textAlign: "center",
 		marginTop: 30,
-		fontWeight: "semibold",
 		fontSize: 16,
 	},
 });
