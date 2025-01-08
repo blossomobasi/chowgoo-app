@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, TextInput, useColorScheme } from "react-native";
-import React from "react";
+import { View, StyleSheet, TextInput, useColorScheme } from "react-native";
+import Text from "@/components/ui/Text";
 import BackButton from "@/components/BackButton";
 import { Colors } from "@/constants/Colors";
 import { Link } from "expo-router";
@@ -8,11 +8,15 @@ import Button from "@/components/Button";
 const ForgotPasswordScreen = () => {
 	const colorScheme = useColorScheme();
 	const theme = Colors[colorScheme ?? "light"];
+
 	return (
 		<View style={styles.container}>
 			<BackButton />
 
-			<Text style={[styles.text, { color: theme.primary }]}>Forgot Password?</Text>
+			<Text variant="bold" style={[styles.text, { color: theme.primary }]}>
+				Forgot Password?
+			</Text>
+
 			<Text style={styles.forgotPasswordText}>
 				Don't worry! It occurs. Please enter the email address linked with your account.
 			</Text>
@@ -23,9 +27,9 @@ const ForgotPasswordScreen = () => {
 
 			<Button title="Send Code" onPress={() => console.log("pressed😎")} customStyles={{ marginTop: 30 }} />
 
-			<Text style={styles.registerText}>
+			<Text style={styles.rememberPassword}>
 				Remember Password?{" "}
-				<Link href="/(auth)/login" style={{ color: theme.primary, fontWeight: "bold" }}>
+				<Link href="/(auth)/login" style={{ color: theme.primary, fontFamily: "Urbanist_600SemiBold" }}>
 					Login
 				</Link>
 			</Text>
@@ -57,18 +61,12 @@ const styles = StyleSheet.create({
 		borderRadius: 5,
 		padding: 20,
 		marginTop: 10,
+		fontSize: 15,
 		backgroundColor: "#E8ECF4",
 	},
-	link: {
-		textAlign: "right",
-		marginTop: 15,
-		marginBottom: 30,
-		fontWeight: "semibold",
-	},
-	registerText: {
+	rememberPassword: {
 		textAlign: "center",
 		marginTop: 30,
-		fontWeight: "semibold",
 		fontSize: 16,
 	},
 });
