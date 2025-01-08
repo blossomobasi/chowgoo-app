@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, TextInput, useColorScheme } from "react-native";
+import { View, StyleSheet, TextInput, useColorScheme } from "react-native";
+import Text from "@/components/ui/Text";
 import React from "react";
 import BackButton from "@/components/BackButton";
 import { Colors } from "@/constants/Colors";
@@ -12,20 +13,22 @@ const RegisterScreen = () => {
 		<View style={styles.container}>
 			<BackButton />
 
-			<Text style={[styles.text, { color: theme.primary }]}>Hello! Register to get started</Text>
+			<Text variant="bold" style={[styles.text, { color: theme.primary }]}>
+				Hello! Register to get started
+			</Text>
 
 			<View>
 				<TextInput placeholder="Username" style={styles.input} />
 				<TextInput placeholder="Email" style={styles.input} />
 				<TextInput placeholder="Password" style={styles.input} />
-				<TextInput placeholder="ConfirmPassword" style={styles.input} />
+				<TextInput placeholder="Confirm Password" style={styles.input} />
 			</View>
 
 			<Button title="Register" onPress={() => console.log("pressed😎")} customStyles={{ marginTop: 30 }} />
 
 			<Text style={styles.registerText}>
 				Already have an account?{" "}
-				<Link href="/(auth)/login" style={{ color: theme.primary, fontWeight: "bold" }}>
+				<Link href="/(auth)/login" style={{ color: theme.primary, fontFamily: "Urbanist_600SemiBold" }}>
 					Login Now
 				</Link>
 			</Text>
@@ -52,17 +55,11 @@ const styles = StyleSheet.create({
 		padding: 20,
 		marginTop: 10,
 		backgroundColor: "#E8ECF4",
-	},
-	link: {
-		textAlign: "right",
-		marginTop: 15,
-		marginBottom: 30,
-		fontWeight: "semibold",
+		fontSize: 15,
 	},
 	registerText: {
 		textAlign: "center",
 		marginTop: 30,
-		fontWeight: "semibold",
 		fontSize: 16,
 	},
 });
