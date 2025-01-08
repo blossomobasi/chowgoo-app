@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
 	},
 	link: {
 		color: "white",
+		fontSize: 16,
 		fontWeight: "semibold",
 		textAlign: "center",
 		marginVertical: 20,
