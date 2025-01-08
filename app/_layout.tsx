@@ -6,7 +6,6 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import {
-	Urbanist_100Thin,
 	Urbanist_300Light,
 	Urbanist_400Regular,
 	Urbanist_500Medium,
@@ -36,7 +35,6 @@ export default function RootLayout() {
 	// 	return null;
 	// }
 	const [loaded] = useFonts({
-		Urbanist_100Thin,
 		Urbanist_300Light,
 		Urbanist_400Regular,
 		Urbanist_500Medium,
