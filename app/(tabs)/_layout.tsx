@@ -30,9 +30,11 @@ export default function TabLayout() {
 					tabBarIcon: ({ focused }) => (
 						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
 							<IconSymbol size={28} name="house.fill" color={focused ? theme.primary : "white"} />
-							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
-								{focused ? "Home" : ""}
-							</Text>
+							{focused && (
+								<Text variant="semiBold" style={{ color: theme.primary }}>
+									Home
+								</Text>
+							)}
 						</View>
 					),
 				}}
@@ -45,9 +47,11 @@ export default function TabLayout() {
 					tabBarIcon: ({ focused }) => (
 						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
 							<IconSymbol size={28} name="magnifyingglass.circle.fill" color={focused ? theme.primary : "white"} />
-							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
-								{focused ? "Search" : ""}
-							</Text>
+							{focused && (
+								<Text variant="semiBold" style={{ color: theme.primary }}>
+									Search
+								</Text>
+							)}
 						</View>
 					),
 				}}
@@ -59,9 +63,11 @@ export default function TabLayout() {
 					tabBarIcon: ({ focused }) => (
 						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
 							<IconSymbol size={28} name="percent.ar" color={focused ? theme.primary : "white"} />
-							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
-								{focused ? "Percent" : ""}
-							</Text>
+							{focused && (
+								<Text variant="semiBold" style={{ color: theme.primary }}>
+									Percent
+								</Text>
+							)}
 						</View>
 					),
 				}}
@@ -73,9 +79,11 @@ export default function TabLayout() {
 					tabBarIcon: ({ focused }) => (
 						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
 							<IconSymbol size={28} name="cart.fill" color={focused ? theme.primary : "white"} />
-							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
-								{focused ? "Cart" : ""}
-							</Text>
+							{focused && (
+								<Text variant="semiBold" style={{ color: theme.primary }}>
+									Cart
+								</Text>
+							)}
 						</View>
 					),
 				}}
@@ -87,9 +95,11 @@ export default function TabLayout() {
 					tabBarIcon: ({ focused }) => (
 						<View style={[styles.tabItemContainer, focused && { backgroundColor: "white" }]}>
 							<IconSymbol size={28} name="person.2.circle.fill" color={focused ? theme.primary : "white"} />
-							<Text variant="semiBold" style={{ color: focused ? theme.primary : "white" }}>
-								{focused ? "Account" : ""}
-							</Text>
+							{focused && (
+								<Text variant="semiBold" style={{ color: theme.primary }}>
+									Account
+								</Text>
+							)}
 						</View>
 					),
 				}}
@@ -123,10 +133,9 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		alignItems: "center",
 		justifyContent: "center",
-		paddingHorizontal: 10,
-		overflow: "hidden",
 		borderRadius: 30,
+		overflow: "hidden",
 		width: 100,
-		height: 50,
+		height: 40,
 	},
 });
