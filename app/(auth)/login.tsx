@@ -26,7 +26,7 @@ const LoginScreen = () => {
 				Forgot Password?
 			</Link>
 
-			<Button title="Login" onPress={() => console.log("pressed😎")} />
+			<Button title="Login" onPress={() => alert("Logged In")} />
 
 			<Text style={styles.registerText}>
 				Don't have an account?{" "}
